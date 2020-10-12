@@ -1,13 +1,13 @@
 package modelos;
 
-import abstraccion.Brownie;
+import abstraccion.Batido;
 import java.util.Date;
 
-public class BrownieChocolate extends Brownie {
+public class BatidoChocolate extends Batido {
 
     @Override
     public boolean estaCaducado() {
-         if (getFechaCaducidad().before(new Date(System.currentTimeMillis()))) {
+          if (getFechaCaducidad().before(new Date(System.currentTimeMillis()))) {
             return true;
         } else {
             return false;

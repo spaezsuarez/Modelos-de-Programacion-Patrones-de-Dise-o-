@@ -1,9 +1,9 @@
 package modelos;
 
-import abstraccion.Brownie;
+import abstraccion.Galleta;
 import java.util.Date;
 
-public class BrownieChocolate extends Brownie {
+public class GalletaChocolate extends Galleta {
 
     @Override
     public boolean estaCaducado() {

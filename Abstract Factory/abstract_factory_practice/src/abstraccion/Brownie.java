@@ -6,6 +6,7 @@ public abstract class Brownie {
     
     private Date fechaCaducidad;
     private String marca;
+    private double precio;
 
     public Date getFechaCaducidad() {
         return fechaCaducidad;
@@ -13,6 +14,10 @@ public abstract class Brownie {
 
     public String getMarca() {
         return marca;
+    }
+
+    public double getPrecio() {
+        return precio;
     }
     
     public abstract boolean estaCaducado();

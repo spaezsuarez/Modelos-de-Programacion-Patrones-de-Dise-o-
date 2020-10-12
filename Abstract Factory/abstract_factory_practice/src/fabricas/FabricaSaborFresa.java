@@ -1,28 +1,29 @@
 package fabricas;
 
 import abstraccion.*;
+import modelos.*;
 
 
 public class FabricaSaborFresa implements FabricaSabores {
 
     @Override
     public Helado devuelveHelado() {
-        return null;
+        return new HeladoFresa();
     }
 
     @Override
     public Brownie devuelveBrownie() {
-        return null;
+        return new BrownieFresa();
     }
 
     @Override
     public Galleta devuelveGalleta() {
-         return null;
+         return new GalletaFresa();
     }
 
     @Override
     public Batido devuelveBatido() {
-         return null;
+         return new BatidoFresa();
     }
     
 }
