@@ -6,7 +6,7 @@ public abstract class Brownie {
     
     private Date fechaCaducidad;
     private String marca;
-    private double precio;
+    private int precio=2500;
 
     public Date getFechaCaducidad() {
         return fechaCaducidad;
@@ -16,7 +16,7 @@ public abstract class Brownie {
         return marca;
     }
 
-    public double getPrecio() {
+    public int getPrecio() {
         return precio;
     }
     

@@ -1,5 +1,7 @@
 package gui;
 
+import fabricas.FabricaSaborChocolate;
+import fabricas.FabricaSaborFresa;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
@@ -13,11 +15,11 @@ import javax.swing.JTextField;
 
 public class Menu extends JFrame {
 
-    private JLabel lBrownie, lGalleta, lMalteada, lHelado, lFresa, lChocolate;
+    private JLabel lBrownie, lGalleta, lMalteada, lHelado, lFresa, lChocolate, PrecioHelado, PrecioGalleta, PrecioBatido, PrecioBrownie;
     private String rutaBrownie, rutaHelado, rutaMalteada, rutaGalleta;
     private JTextField[][] MatrizTexts;
     private JButton[][] MatrizBotones1, MatrizBotones2;
-    private JButton Pagar, Precio;
+    private JButton Pagar;
 
     public Menu() {
         setLayout(null);
@@ -29,26 +31,73 @@ public class Menu extends JFrame {
 
         setLocationRelativeTo(null);
         setVisible(true);
-
     }
 
     public void initElements() {
+        setTitle("Tienda");
+
+        PrecioBrownie = new JLabel("$2.000");
+        PrecioBrownie.setSize(100, 20);
+        PrecioBrownie.setLocation(247, 115);
+        PrecioBrownie.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
+        add(PrecioBrownie);
+
+        PrecioGalleta = new JLabel("$1.500");
+        PrecioGalleta.setSize(100, 20);
+        PrecioGalleta.setLocation(370, 115);
+        PrecioGalleta.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
+        add(PrecioGalleta);
+
+        PrecioBatido = new JLabel("$3.000");
+        PrecioBatido.setSize(100, 20);
+        PrecioBatido.setLocation(485, 115);
+        PrecioBatido.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
+        add(PrecioBatido);
+
+        PrecioHelado = new JLabel("$2.500");
+        PrecioHelado.setSize(100, 20);
+        PrecioHelado.setLocation(605, 115);
+        PrecioHelado.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
+        add(PrecioHelado);
 
         Pagar = new JButton("Pagar");
         Pagar.setSize(new Dimension(150, 40));
-        Pagar.setLocation(new Point(30, 20));
+        Pagar.setLocation(new Point(30, 55));
+        Pagar.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
         Pagar.addActionListener((ActionEvent ae1) -> {
+            int[] Fresa = new int[4];
+            int[] Chocolate = new int[4];
+            FabricaSaborFresa nuevaFabricaFresa = new FabricaSaborFresa();
+            FabricaSaborChocolate nuevaFabricaChocolate = new FabricaSaborChocolate();
 
+            for (int j = 0; j < 4; j++) {
+                int CantidadFor = Integer.parseInt(MatrizTexts[0][j].getText());
+                if (CantidadFor > 0) {
+                    Fresa[j] += CantidadFor;
+                }
+            }
+            for (int j = 0; j < 4; j++) {
+                int CantidadFor = Integer.parseInt(MatrizTexts[1][j].getText());
+                if (CantidadFor > 0) {
+                    Chocolate[j] += CantidadFor;
+                }
+            }
+
+            if (nuevaFabricaFresa != null) {
+                nuevaFabricaFresa.recibePedidos(Fresa);
+            }
+            if (nuevaFabricaChocolate != null) {
+                nuevaFabricaChocolate.recibePedidos(Chocolate);
+            }
+
+            Factura facturaNueva = new Factura();
+            facturaNueva.setArregloHelado(nuevaFabricaChocolate.devuelveHelado(Chocolate[3]), nuevaFabricaFresa.devuelveHelado(Fresa[3]));
+            facturaNueva.setArregloBatido(nuevaFabricaChocolate.devuelveBatido(Chocolate[2]), nuevaFabricaFresa.devuelveBatido(Fresa[2]));
+            facturaNueva.setArregloBrownie(nuevaFabricaChocolate.devuelveBrownie(Chocolate[0]), nuevaFabricaFresa.devuelveBrownie(Fresa[0]));
+            facturaNueva.setArregloGalleta(nuevaFabricaChocolate.devuelveGalleta(Chocolate[1]), nuevaFabricaFresa.devuelveGalleta(Fresa[1]));
+            facturaNueva.initComponents();
         });
         add(Pagar);
-
-        Precio = new JButton("Precio actual");
-        Precio.setSize(new Dimension(150, 40));
-        Precio.setLocation(new Point(30, 70));
-        Precio.addActionListener((ActionEvent ae2) -> {
-
-        });
-        add(Precio);
 
         MatrizTexts = new JTextField[2][4];
         for (int i = 0; i < 2; i++) {
@@ -340,6 +389,7 @@ public class Menu extends JFrame {
         ImageIcon imagenFinalFresa = new ImageIcon(nuevaImagenFresa);
 
         lFresa = new JLabel("Sabor Fresa", imagenFinalFresa, JLabel.CENTER);
+        lFresa.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
         lFresa.setSize(new Dimension(150, 60));
         lFresa.setLocation(20, 150);
         add(lFresa);
@@ -352,6 +402,7 @@ public class Menu extends JFrame {
 
         lChocolate = new JLabel("Sabor Chocolate", imagenFinalChocolate, JLabel.CENTER);
         lChocolate.setSize(new Dimension(165, 60));
+        lChocolate.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
         lChocolate.setLocation(20, 230);
         add(lChocolate);
 
@@ -402,7 +453,6 @@ public class Menu extends JFrame {
         ImageIcon imagenFinalHelado = new ImageIcon(nuevaimagenHelado);
         lHelado.setIcon(imagenFinalHelado);
         add(lHelado);
-
     }
 
 }

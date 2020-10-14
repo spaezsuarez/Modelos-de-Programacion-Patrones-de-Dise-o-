@@ -5,30 +5,57 @@ import modelos.BatidoChocolate;
 import modelos.BrownieChocolate;
 import modelos.GalletaChocolate;
 import modelos.HeladoChocolate;
+import modelos.HeladoFresa;
 
-/**
- *
- * @author spaezsuarez
- */
 public class FabricaSaborChocolate implements FabricaSabores {
-    
-     @Override
-    public Helado devuelveHelado() {
-        return new HeladoChocolate();
+
+    int[] pedidosChocolate = null;
+
+    @Override
+    public HeladoChocolate[] devuelveHelado(int tamaño) {
+        HeladoChocolate[] heladoLista = new HeladoChocolate[tamaño];
+
+        for (int i = 0; i < tamaño; i++) {
+            heladoLista[i] = new HeladoChocolate();
+        }
+
+        return heladoLista;
     }
 
     @Override
-    public Brownie devuelveBrownie() {
-        return new BrownieChocolate();
+    public BrownieChocolate[] devuelveBrownie(int tamaño) {
+        BrownieChocolate[] brownieLista = new BrownieChocolate[tamaño];
+
+        for (int i = 0; i < tamaño; i++) {
+            brownieLista[i] = new BrownieChocolate();
+        }
+
+        return brownieLista;
     }
 
     @Override
-    public Galleta devuelveGalleta() {
-         return new GalletaChocolate();
+    public GalletaChocolate[] devuelveGalleta(int tamaño) {
+        GalletaChocolate[] galletaLista = new GalletaChocolate[tamaño];
+
+        for (int i = 0; i < tamaño; i++) {
+            galletaLista[i] = new GalletaChocolate();
+        }
+
+        return galletaLista;
     }
 
     @Override
-    public Batido devuelveBatido() {
-         return new BatidoChocolate();
+    public BatidoChocolate[] devuelveBatido(int tamaño) {
+        BatidoChocolate[] batidoLista = new BatidoChocolate[tamaño];
+
+        for (int i = 0; i < tamaño; i++) {
+            batidoLista[i] = new BatidoChocolate();
+        }
+
+        return batidoLista;
+    }
+
+    public void recibePedidos(int[] lista) {
+        pedidosChocolate = lista;
     }
 }
