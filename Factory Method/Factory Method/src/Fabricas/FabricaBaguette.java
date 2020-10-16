@@ -1,7 +1,12 @@
 package Fabricas;
 
-import Abstracciones.BreadFactory;
+import Abstracciones.FabricaPan;
+import ProductosConcretos.PanBaguette;
 
-public class FabricaBaguette implements BreadFactory {
+public class FabricaBaguette implements FabricaPan {
+
+    public PanBaguette devolverPan() {
+        return new PanBaguette();
+    }
 
 }
