@@ -199,10 +199,7 @@ public class Menu extends JFrame {
         }
 
         MatrizBotones1[0][0].addActionListener((ActionEvent e1) -> {
-            if ((Integer.valueOf(MatrizTexts[0][0].getText())) == 10) {
-            } else {
-                MatrizTexts[0][0].setText(String.valueOf(Integer.valueOf(MatrizTexts[0][0].getText()) + 1));
-            }
+            MatrizTexts[0][0].setText(String.valueOf(Integer.valueOf(MatrizTexts[0][0].getText()) + 1));
         });
         MatrizBotones1[1][0].addActionListener((ActionEvent e2) -> {
             if ((Integer.valueOf(MatrizTexts[0][0].getText())) == 0) {
@@ -211,10 +208,7 @@ public class Menu extends JFrame {
             }
         });
         MatrizBotones1[0][1].addActionListener((ActionEvent e3) -> {
-            if ((Integer.valueOf(MatrizTexts[0][1].getText())) == 10) {
-            } else {
-                MatrizTexts[0][1].setText(String.valueOf(Integer.valueOf(MatrizTexts[0][1].getText()) + 1));
-            }
+            MatrizTexts[0][1].setText(String.valueOf(Integer.valueOf(MatrizTexts[0][1].getText()) + 1));
         });
 
         MatrizBotones1[1][1].addActionListener((ActionEvent e4) -> {
@@ -224,10 +218,7 @@ public class Menu extends JFrame {
             }
         });
         MatrizBotones1[0][2].addActionListener((ActionEvent e5) -> {
-            if ((Integer.valueOf(MatrizTexts[0][2].getText())) == 10) {
-            } else {
-                MatrizTexts[0][2].setText(String.valueOf(Integer.valueOf(MatrizTexts[0][2].getText()) + 1));
-            }
+            MatrizTexts[0][2].setText(String.valueOf(Integer.valueOf(MatrizTexts[0][2].getText()) + 1));
         });
         MatrizBotones1[1][2].addActionListener((ActionEvent e6) -> {
             if ((Integer.valueOf(MatrizTexts[0][2].getText())) == 0) {
@@ -236,10 +227,7 @@ public class Menu extends JFrame {
             }
         });
         MatrizBotones1[0][3].addActionListener((ActionEvent e7) -> {
-            if ((Integer.valueOf(MatrizTexts[0][3].getText())) == 10) {
-            } else {
-                MatrizTexts[0][3].setText(String.valueOf(Integer.valueOf(MatrizTexts[0][3].getText()) + 1));
-            }
+            MatrizTexts[0][3].setText(String.valueOf(Integer.valueOf(MatrizTexts[0][3].getText()) + 1));
         });
         MatrizBotones1[1][3].addActionListener((ActionEvent e8) -> {
             if ((Integer.valueOf(MatrizTexts[0][3].getText())) == 0) {
@@ -333,10 +321,7 @@ public class Menu extends JFrame {
         }
 
         MatrizBotones2[0][0].addActionListener((ActionEvent e1) -> {
-            if ((Integer.valueOf(MatrizTexts[1][0].getText())) == 10) {
-            } else {
-                MatrizTexts[1][0].setText(String.valueOf(Integer.valueOf(MatrizTexts[1][0].getText()) + 1));
-            }
+            MatrizTexts[1][0].setText(String.valueOf(Integer.valueOf(MatrizTexts[1][0].getText()) + 1));
         });
         MatrizBotones2[1][0].addActionListener((ActionEvent e2) -> {
             if ((Integer.valueOf(MatrizTexts[1][0].getText())) == 0) {
@@ -345,10 +330,7 @@ public class Menu extends JFrame {
             }
         });
         MatrizBotones2[0][1].addActionListener((ActionEvent e3) -> {
-            if ((Integer.valueOf(MatrizTexts[1][1].getText())) == 10) {
-            } else {
-                MatrizTexts[1][1].setText(String.valueOf(Integer.valueOf(MatrizTexts[1][1].getText()) + 1));
-            }
+            MatrizTexts[1][1].setText(String.valueOf(Integer.valueOf(MatrizTexts[1][1].getText()) + 1));
         });
 
         MatrizBotones2[1][1].addActionListener((ActionEvent e4) -> {
@@ -358,10 +340,7 @@ public class Menu extends JFrame {
             }
         });
         MatrizBotones2[0][2].addActionListener((ActionEvent e5) -> {
-            if ((Integer.valueOf(MatrizTexts[1][2].getText())) == 10) {
-            } else {
-                MatrizTexts[1][2].setText(String.valueOf(Integer.valueOf(MatrizTexts[1][2].getText()) + 1));
-            }
+            MatrizTexts[1][2].setText(String.valueOf(Integer.valueOf(MatrizTexts[1][2].getText()) + 1));
         });
         MatrizBotones2[1][2].addActionListener((ActionEvent e6) -> {
             if ((Integer.valueOf(MatrizTexts[1][2].getText())) == 0) {
@@ -370,10 +349,7 @@ public class Menu extends JFrame {
             }
         });
         MatrizBotones2[0][3].addActionListener((ActionEvent e7) -> {
-            if ((Integer.valueOf(MatrizTexts[1][3].getText())) == 10) {
-            } else {
-                MatrizTexts[1][3].setText(String.valueOf(Integer.valueOf(MatrizTexts[1][3].getText()) + 1));
-            }
+            MatrizTexts[1][3].setText(String.valueOf(Integer.valueOf(MatrizTexts[1][3].getText()) + 1));
         });
         MatrizBotones2[1][3].addActionListener((ActionEvent e8) -> {
             if ((Integer.valueOf(MatrizTexts[1][3].getText())) == 0) {

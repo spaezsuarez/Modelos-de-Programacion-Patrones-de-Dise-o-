@@ -5,7 +5,6 @@ import modelos.BatidoChocolate;
 import modelos.BrownieChocolate;
 import modelos.GalletaChocolate;
 import modelos.HeladoChocolate;
-import modelos.HeladoFresa;
 
 public class FabricaSaborChocolate implements FabricaSabores {
 
