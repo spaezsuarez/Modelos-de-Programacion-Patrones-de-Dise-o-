@@ -2,6 +2,6 @@ package Abstracciones;
 
 public interface FabricaPan {
     
-    public Pan devolverPan();
+    public Pan[] devolverPan(int size);
 
 }
