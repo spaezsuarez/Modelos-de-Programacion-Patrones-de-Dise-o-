@@ -81,33 +81,33 @@ public class Factura extends JFrame {
 
         int a;
 
-//        int Total = ((arregloBrownie.length * 2500)
-//                + (arregloGalleta.length * 1500)
-//                + (arregloBatido.length * 3000)
-//                + (arregloHelado.length * 2000));
-//        total.setText("Total: $" + Total);
+        int Total = ((arrBaguette.length * 1500)
+                + (arrCoco.length * 3000)
+                + (arrIntegral.length * 2000)
+                + (arrRollos.length * 3500));
+        total.setText("Total: $" + Total);
         componentes.setLayout(new GridLayout(0, 1));
 
-        for (a = 0; a < arregloBrownie.length; a++) {
-            JLabel labelNuevo = new JLabel(String.valueOf(arregloBrownie[a].getClass().getSimpleName()) + " x $" + Math.round(arregloBrownie[a].getPrecio()));
+        for (a = 0; a < arrBaguette.length; a++) {
+            JLabel labelNuevo = new JLabel(String.valueOf(arrBaguette[a].getClass().getSimpleName()) + " x $" + Math.round(arrBaguette[a].getPrecio()));
             labelNuevo.setBorder(BorderFactory.createLineBorder(Color.black));
             labelNuevo.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
             componentes.add(labelNuevo);
         }
-        for (a = 0; a < arregloGalleta.length; a++) {
-            JLabel labelNuevo = new JLabel(String.valueOf(arregloGalleta[a].getClass().getSimpleName()) + " x $" + Math.round(arregloGalleta[a].getPrecio()));
+        for (a = 0; a < arrCoco.length; a++) {
+            JLabel labelNuevo = new JLabel(String.valueOf(arrCoco[a].getClass().getSimpleName()) + " x $" + Math.round(arrCoco[a].getPrecio()));
             labelNuevo.setBorder(BorderFactory.createLineBorder(Color.black));
             labelNuevo.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
             componentes.add(labelNuevo);
         }
-        for (a = 0; a < arregloBatido.length; a++) {
-            JLabel labelNuevo = new JLabel(String.valueOf(arregloBatido[a].getClass().getSimpleName()) + " x $" + Math.round(arregloBatido[a].getPrecio()));
+        for (a = 0; a < arrIntegral.length; a++) {
+            JLabel labelNuevo = new JLabel(String.valueOf(arrIntegral[a].getClass().getSimpleName()) + " x $" + Math.round(arrIntegral[a].getPrecio()));
             labelNuevo.setBorder(BorderFactory.createLineBorder(Color.black));
             labelNuevo.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
             componentes.add(labelNuevo);
         }
-        for (a = 0; a < arregloHelado.length; a++) {
-            JLabel labelNuevo = new JLabel(String.valueOf(arregloHelado[a].getClass().getSimpleName()) + " x $" + Math.round(arregloHelado[a].getPrecio()));
+        for (a = 0; a < arrRollos.length; a++) {
+            JLabel labelNuevo = new JLabel(String.valueOf(arrRollos[a].getClass().getSimpleName()) + " x $" + Math.round(arrRollos[a].getPrecio()));
             labelNuevo.setBorder(BorderFactory.createLineBorder(Color.black));
             labelNuevo.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
             componentes.add(labelNuevo);

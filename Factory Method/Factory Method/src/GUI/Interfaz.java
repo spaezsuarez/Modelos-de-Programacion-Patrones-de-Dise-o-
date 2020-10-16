@@ -1,5 +1,9 @@
 package gui;
 
+import Fabricas.FabricaBaguette;
+import Fabricas.FabricaPanCoco;
+import Fabricas.FabricaPanIntegral;
+import Fabricas.FabricaPanRollo;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -21,13 +25,17 @@ public class Interfaz extends JFrame {
     private JTextField[][] MatrizTexts;
     private JButton[][] MatrizBotones1;
     private JButton Pagar;
+    private FabricaBaguette nuevaFabricaBaguette = new FabricaBaguette();
+    private FabricaPanCoco nuevaFabricaCoco = new FabricaPanCoco();
+    private FabricaPanIntegral nuevaFabricaIntegral = new FabricaPanIntegral();
+    private FabricaPanRollo nuevaFabricaRollo = new FabricaPanRollo();
 
     public Interfaz() {
         setLayout(null);
         getContentPane().setBackground(new Color(150, 190, 230));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        getContentPane().setSize(new Dimension(553, 375));
-        setSize(new Dimension(553, 375));
+        getContentPane().setSize(new Dimension(553, 400));
+        setSize(new Dimension(553, 400));
 
         initElements();
 
@@ -62,29 +70,29 @@ public class Interfaz extends JFrame {
         TituloPanCoco.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
         add(TituloPanCoco);
 
-        PrecioPanRollo = new JLabel("$2.000");
+        PrecioPanRollo = new JLabel("$3.500");
         PrecioPanRollo.setSize(100, 20);
         PrecioPanRollo.setLocation(73, 155);
         PrecioPanRollo.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
         add(PrecioPanRollo);
 
-        PrecioPanCoco = new JLabel("$1.500");
-        PrecioPanCoco.setSize(100, 20);
-        PrecioPanCoco.setLocation(193, 155);
-        PrecioPanCoco.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
-        add(PrecioPanCoco);
-
-        PrecioBaguette = new JLabel("$3.000");
+        PrecioBaguette = new JLabel("$1.500");
         PrecioBaguette.setSize(100, 20);
-        PrecioBaguette.setLocation(313, 155);
+        PrecioBaguette.setLocation(193, 155);
         PrecioBaguette.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
         add(PrecioBaguette);
 
-        PrecioPanIntegral = new JLabel("$2.500");
+        PrecioPanIntegral = new JLabel("$2.000");
         PrecioPanIntegral.setSize(100, 20);
-        PrecioPanIntegral.setLocation(433, 155);
+        PrecioPanIntegral.setLocation(313, 155);
         PrecioPanIntegral.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
         add(PrecioPanIntegral);
+
+        PrecioPanCoco = new JLabel("$3.000");
+        PrecioPanCoco.setSize(100, 20);
+        PrecioPanCoco.setLocation(433, 155);
+        PrecioPanCoco.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
+        add(PrecioPanCoco);
 
         MatrizTexts = new JTextField[1][4];
         for (int j = 0; j < 4; j++) {
@@ -183,36 +191,17 @@ public class Interfaz extends JFrame {
         }
 
         Pagar = new JButton("Pagar");
-        Pagar.setSize(new Dimension(150, 40));
-        Pagar.setLocation(new Point(30, 55));
+        Pagar.setSize(new Dimension(75, 40));
+        Pagar.setLocation(new Point(235, 315));
         Pagar.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
         Pagar.addActionListener((ActionEvent ae1) -> {
 
-            for (int j = 0; j < 4; j++) {
-                int CantidadFor = Integer.parseInt(MatrizTexts[0][j].getText());
-                if (CantidadFor > 0) {
-                    Fresa[j] += CantidadFor;
-                }
-            }
-            for (int j = 0; j < 4; j++) {
-                int CantidadFor = Integer.parseInt(MatrizTexts[1][j].getText());
-                if (CantidadFor > 0) {
-                    Chocolate[j] += CantidadFor;
-                }
-            }
-
-            if (nuevaFabricaFresa != null) {
-                nuevaFabricaFresa.recibePedidos(Fresa);
-            }
-            if (nuevaFabricaChocolate != null) {
-                nuevaFabricaChocolate.recibePedidos(Chocolate);
-            }
-
             Factura facturaNueva = new Factura();
-            facturaNueva.setArregloHelado(nuevaFabricaChocolate.devuelveHelado(Chocolate[3]), nuevaFabricaFresa.devuelveHelado(Fresa[3]));
-            facturaNueva.setArregloBatido(nuevaFabricaChocolate.devuelveBatido(Chocolate[2]), nuevaFabricaFresa.devuelveBatido(Fresa[2]));
-            facturaNueva.setArregloBrownie(nuevaFabricaChocolate.devuelveBrownie(Chocolate[0]), nuevaFabricaFresa.devuelveBrownie(Fresa[0]));
-            facturaNueva.setArregloGalleta(nuevaFabricaChocolate.devuelveGalleta(Chocolate[1]), nuevaFabricaFresa.devuelveGalleta(Fresa[1]));
+            facturaNueva.setArregloBaguette(nuevaFabricaBaguette.devolverPan(Integer.parseInt(MatrizTexts[0][1].getText())));
+            System.out.println(MatrizTexts[0][1].getText());
+            facturaNueva.setArregloCoco(nuevaFabricaCoco.devolverPan(Integer.parseInt(MatrizTexts[0][3].getText())));
+            facturaNueva.setArregloIntegral(nuevaFabricaIntegral.devolverPan(Integer.parseInt(MatrizTexts[0][2].getText())));
+            facturaNueva.setArregloRollo(nuevaFabricaRollo.devolverPan(Integer.parseInt(MatrizTexts[0][0].getText())));
             facturaNueva.initComponents();
         });
         add(Pagar);
@@ -303,5 +292,4 @@ public class Interfaz extends JFrame {
         LblImgPanCoco.setIcon(imagenFinalHelado);
         add(LblImgPanCoco);
     }
-
 }

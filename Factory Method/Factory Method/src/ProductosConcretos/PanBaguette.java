@@ -10,7 +10,6 @@ public class PanBaguette extends Pan {
     public PanBaguette() {
         super();
         this.precio = 1500;
-
     }
 
     @Override
