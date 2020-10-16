@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.Timer;
 
 public class Interfaz extends JFrame {
 
@@ -21,6 +20,7 @@ public class Interfaz extends JFrame {
     private String rutaPanRollo, rutaPanCoco, rutaPanIntegral, rutaBaguette;
     private JTextField[][] MatrizTexts;
     private JButton[][] MatrizBotones1;
+    private JButton Pagar;
 
     public Interfaz() {
         setLayout(null);
@@ -181,6 +181,41 @@ public class Interfaz extends JFrame {
                 }
             }
         }
+
+        Pagar = new JButton("Pagar");
+        Pagar.setSize(new Dimension(150, 40));
+        Pagar.setLocation(new Point(30, 55));
+        Pagar.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
+        Pagar.addActionListener((ActionEvent ae1) -> {
+
+            for (int j = 0; j < 4; j++) {
+                int CantidadFor = Integer.parseInt(MatrizTexts[0][j].getText());
+                if (CantidadFor > 0) {
+                    Fresa[j] += CantidadFor;
+                }
+            }
+            for (int j = 0; j < 4; j++) {
+                int CantidadFor = Integer.parseInt(MatrizTexts[1][j].getText());
+                if (CantidadFor > 0) {
+                    Chocolate[j] += CantidadFor;
+                }
+            }
+
+            if (nuevaFabricaFresa != null) {
+                nuevaFabricaFresa.recibePedidos(Fresa);
+            }
+            if (nuevaFabricaChocolate != null) {
+                nuevaFabricaChocolate.recibePedidos(Chocolate);
+            }
+
+            Factura facturaNueva = new Factura();
+            facturaNueva.setArregloHelado(nuevaFabricaChocolate.devuelveHelado(Chocolate[3]), nuevaFabricaFresa.devuelveHelado(Fresa[3]));
+            facturaNueva.setArregloBatido(nuevaFabricaChocolate.devuelveBatido(Chocolate[2]), nuevaFabricaFresa.devuelveBatido(Fresa[2]));
+            facturaNueva.setArregloBrownie(nuevaFabricaChocolate.devuelveBrownie(Chocolate[0]), nuevaFabricaFresa.devuelveBrownie(Fresa[0]));
+            facturaNueva.setArregloGalleta(nuevaFabricaChocolate.devuelveGalleta(Chocolate[1]), nuevaFabricaFresa.devuelveGalleta(Fresa[1]));
+            facturaNueva.initComponents();
+        });
+        add(Pagar);
 
         MatrizBotones1[0][0].addActionListener((ActionEvent e1) -> {
             MatrizTexts[0][0].setText(String.valueOf(Integer.valueOf(MatrizTexts[0][0].getText()) + 1));
