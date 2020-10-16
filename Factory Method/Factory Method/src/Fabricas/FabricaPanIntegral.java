@@ -1,7 +1,12 @@
 package Fabricas;
 
-import Abstracciones.BreadFactory;
+import Abstracciones.FabricaPan;
+import ProductosConcretos.PanIntegral;
 
-public class FabricaPanIntegral implements BreadFactory {
+public class FabricaPanIntegral implements FabricaPan {
+    
+    public PanIntegral devolverPan(){
+        return new PanIntegral();
+    }
 
 }
