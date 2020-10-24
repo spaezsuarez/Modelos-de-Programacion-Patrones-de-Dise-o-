@@ -2,66 +2,48 @@ package Figuras;
 
 import Interface.Figuras_geometricas;
 
-public class Circulo implements Figuras_geometricas {
+public class Circulo extends Figuras_geometricas {
     
     private static Circulo instancia;
     
-    private String nombre;
-    private int ancho,alto;
-    private double radio,area;
+    private double radio;
     
-    private Circulo() {}
-    
-    public static Circulo getInstance(){
-        if(instancia == null){
-            instancia = new Circulo();
-        }     
-        return instancia;
-    
-    }
-
-    @Override
-    public void setNombre(String nombre) {
-       this.nombre = nombre;
+    private Circulo() {
     }
     
-    public void setRadio(double radio){
+    public void setRadio(double radio) {
         this.radio = radio;
     }
-
-    @Override
-    public String getNombre() {
-        return nombre;
-    }
-
-    @Override
-    public void tamaño(int x, int y) {
-        this.ancho = x;
-        this.alto = y;
-    }
-
-    @Override
-    public void getposicion() {
-        System.out.println("Altura del rectangulo .." + this.ancho);
-        System.out.println("Ancho del rectangulo...." + this.alto);  
-    }
-
-    @Override
-    public Figuras_geometricas clonar() {
-        Figuras_geometricas figura = new Circulo();
-        figura.setNombre(this.nombre);
-        figura.tamaño(this.ancho, this.alto);
-        return figura;
-    }
-
-    @Override
-    public double getArea() {
-        area = Math.PI * Math.pow(radio, 2);
-        return area;
+    
+    public static Circulo getInstance() {
+        if (instancia == null) {
+            instancia = new Circulo();
+        }
+        return instancia;
     }
     
-    public double getRadio(){
+    public void tamaño(double radio) {
+        this.radio = radio;
+    }
+    
+    @Override
+    public Figuras_geometricas clonar() {
+        Circulo figura = new Circulo();
+        figura.setNombre(Nombre);
+        figura.tamaño(radio);
+        figura.posicion(pos_x, pos_y);
+        figura.setRadio(radio);
+        figura.setArea();
+        return figura;
+    }
+    
+    public double getRadio() {
         return radio;
+    }
+    
+    @Override
+    public void setArea() {
+        area = Math.pow(radio, 2) * Math.PI;
     }
     
 }
