@@ -46,4 +46,13 @@ public class Circulo extends Figuras_geometricas {
         area = Math.pow(radio, 2) * Math.PI;
     }
     
+    public String toString(){
+       return "<html><body>"+
+                "<p>Nombre de la figura: " + Nombre + "</p><br>"
+                +"<p>Posicion(x,y): (" +pos_x+","+pos_y+")</p><br>"
+                +"<p>Area: "+area+"</p><br>"
+                +"<p>Radio: " + radio + "</p><br>"
+                + "</body></html>";
+    }
+    
 }

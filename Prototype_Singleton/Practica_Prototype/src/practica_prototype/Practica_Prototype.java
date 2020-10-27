@@ -8,6 +8,6 @@ public class Practica_Prototype {
 
        FiguraComponent test = new FiguraComponent("Circulo");
        test.initTemplate();
-    }
 
+    }
 }

@@ -1,11 +1,9 @@
 package GUI;
 
 //Elementos Graficos
-import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JButton;
-import javax.swing.JPanel;
-
+import javax.swing.JLabel;
 //Elementos Decorativos
 import java.awt.Dimension;
 import java.awt.event.*;
@@ -14,23 +12,36 @@ import java.awt.Font;
 //Componentes
 import GUI.components.*;
 
+//Logica
+import Figuras.*;
+import Interface.Figuras_geometricas;
 
 public class FiguraComponent extends JFrame implements ActionListener {
     
     private final int ancho,alto;
     private JButton btnClonar;
-    private JPanel test = new JPanel();
     private Component componente;
+    private Figuras_geometricas figura;
+    private JLabel stats;
     
     public FiguraComponent(String nombreFigura){
         ancho = 600;
-        alto = 700;
+        alto = 800;
+        
+        setTitle(nombreFigura);
         
         if(nombreFigura.equalsIgnoreCase("Circulo")){
             componente = new CirculoComponent();
+            figura = Circulo.getInstance();
+            figura.setNombre(nombreFigura);
+        }else{
+            componente = new RectanguloComponent();
+            figura = Rectangulo.getInstance();
+            figura.setNombre(nombreFigura);
         }
         
         btnClonar = new JButton("Clonar");
+        stats = new JLabel();
         
         
     }
@@ -52,7 +63,7 @@ public class FiguraComponent extends JFrame implements ActionListener {
     
     public void initElements(){
         btnClonar.setSize(new Dimension(200,40));
-        btnClonar.setLocation((this.getWidth()-btnClonar.getWidth())/2, 550);
+        btnClonar.setLocation((this.getWidth()-btnClonar.getWidth())/2, 600);
         btnClonar.setFont(new Font("Arial",Font.BOLD,20));
         btnClonar.addActionListener(this);
         add(btnClonar);
@@ -60,6 +71,12 @@ public class FiguraComponent extends JFrame implements ActionListener {
         componente.setLocation(150, 0);
         componente.repaint();
         add(componente);
+        
+        stats.setSize(new Dimension(200,300));
+        stats.setText(figura.toString());
+        stats.setLocation((this.getWidth()-stats.getWidth())/2, 300);
+        stats.setFont(new Font("Arial",Font.PLAIN,15));
+        add(stats);
         
     
     }

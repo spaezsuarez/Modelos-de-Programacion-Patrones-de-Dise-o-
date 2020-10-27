@@ -3,7 +3,7 @@ package GUI.components;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-public abstract class Component extends JPanel {
+public class Component extends JPanel {
     
     protected final int ancho,alto;
     

@@ -60,4 +60,16 @@ public class Rectangulo extends Figuras_geometricas {
     public void setArea() {
         area = ancho * altura;
     }
+    
+    public String toString(){
+        
+        return "<html><body>"+
+                "<p>Nombre de la figura: " + Nombre + "</p><br>"
+                +"<p>Posicion(x,y): (" +pos_x+","+pos_y+")</p><br>"
+                +"<p>Area: "+area+"</p><br>"
+                +"<p>Ancho: " + ancho + " alto: " + altura + "</p><br>"
+                + "</body></html>";
+        
+    }
+    
 }
