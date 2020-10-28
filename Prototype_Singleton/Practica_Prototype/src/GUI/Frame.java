@@ -17,6 +17,8 @@ public class Frame extends JFrame {
     private JLabel LblTxtTitle, LblImgCirculo, LblImgRectangulo;
     private JButton BtnFiguraCirculo, BtnFiguraRectangulo;
     private String rutaCirculo, rutaRectangulo;
+    
+    private static Frame instance;
 
     private static Frame instancia;
 
@@ -27,9 +29,10 @@ public class Frame extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initComponents();
+        initListeners();
         setVisible(true);
     }
-
+    
     public static Frame getInstance() {
         if (instancia == null) {
             instancia = new Frame();
@@ -39,9 +42,13 @@ public class Frame extends JFrame {
 
     public void initListeners() {
         BtnFiguraCirculo.addActionListener((ActionEvent ae) -> {
+            FiguraComponent circuloFrame = new FiguraComponent("Circulo");
+            circuloFrame.initTemplate();
         });
 
         BtnFiguraRectangulo.addActionListener((ActionEvent ae) -> {
+            FiguraComponent RectanguloFrame = new FiguraComponent("Rectangulo");
+            RectanguloFrame.initTemplate();
         });
     }
 
