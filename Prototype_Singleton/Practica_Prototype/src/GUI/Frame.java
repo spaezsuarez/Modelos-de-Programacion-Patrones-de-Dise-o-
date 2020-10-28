@@ -1,5 +1,6 @@
 package GUI;
 
+import Figuras.Rectangulo;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -17,7 +18,9 @@ public class Frame extends JFrame {
     private JButton BtnFiguraCirculo, BtnFiguraRectangulo;
     private String rutaCirculo, rutaRectangulo;
 
-    public Frame() {
+    private static Frame instancia;
+
+    private Frame() {
         setLayout(null);
         setTitle("Menú");
         setSize(300, 300);
@@ -25,6 +28,13 @@ public class Frame extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initComponents();
         setVisible(true);
+    }
+
+    public static Frame getInstance() {
+        if (instancia == null) {
+            instancia = new Frame();
+        }
+        return instancia;
     }
 
     public void initListeners() {

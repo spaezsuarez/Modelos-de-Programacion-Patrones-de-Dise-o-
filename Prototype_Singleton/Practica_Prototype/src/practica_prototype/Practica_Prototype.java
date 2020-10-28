@@ -6,7 +6,7 @@ public class Practica_Prototype {
 
     public static void main(String[] args) {
 
-        Frame nuevoFrame = new Frame();
+        Frame nuevoFrame = Frame.getInstance();
 
     }
 }
