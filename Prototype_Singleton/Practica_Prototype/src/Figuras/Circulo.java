@@ -27,7 +27,7 @@ public class Circulo extends Figuras_geometricas {
     }
     
     @Override
-    public Figuras_geometricas clonar() {
+    public Circulo clonar() {
         Circulo figura = new Circulo();
         figura.setNombre(Nombre);
         figura.tamaño(radio);
@@ -53,6 +53,11 @@ public class Circulo extends Figuras_geometricas {
                 +"<p>Area: "+area+"</p><br>"
                 +"<p>Radio: " + radio + "</p><br>"
                 + "</body></html>";
+    }
+
+    @Override
+    public void establecerDimensiones(double[] valores) {
+        setRadio(valores[0]);
     }
     
 }

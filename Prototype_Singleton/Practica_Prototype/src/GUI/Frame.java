@@ -16,22 +16,38 @@ public class Frame extends JFrame {
     private JLabel LblTxtTitle, LblImgCirculo, LblImgRectangulo;
     private JButton BtnFiguraCirculo, BtnFiguraRectangulo;
     private String rutaCirculo, rutaRectangulo;
+    
+    private static Frame instance;
 
-    public Frame() {
+    private Frame() {
         setLayout(null);
         setTitle("Menú");
         setSize(300, 300);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initComponents();
+        initListeners();
         setVisible(true);
     }
+    
+    public static Frame getInstance(){
+        if(instance == null){
+            instance = new Frame();
+        }
+        
+        return instance;
+    }
+    
 
     public void initListeners() {
         BtnFiguraCirculo.addActionListener((ActionEvent ae) -> {
+            FiguraComponent circuloFrame = new FiguraComponent("Circulo");
+            circuloFrame.initTemplate();
         });
 
         BtnFiguraRectangulo.addActionListener((ActionEvent ae) -> {
+            FiguraComponent RectanguloFrame = new FiguraComponent("Rectangulo");
+            RectanguloFrame.initTemplate();
         });
     }
 

@@ -34,12 +34,14 @@ public abstract class Figuras_geometricas { //Interfaz referente al prototipo ab
         this.area = area;
     }
 
-    public abstract void setArea();
-
     public void posicion(int x, int y) {
         pos_x = x;
         pos_y = y;
     }
+    
+    public abstract void setArea();
+    
+    public abstract void establecerDimensiones(double[] valores);
 
     public abstract Figuras_geometricas clonar(); //Metodo clave del patron, el cual devolvera una copia del objeto actual que implemente esta interfaz
 }

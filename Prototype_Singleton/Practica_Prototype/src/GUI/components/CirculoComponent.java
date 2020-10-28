@@ -15,7 +15,7 @@ public class CirculoComponent extends Component {
     public void paint(Graphics g) {
         super.paint(g);
         g.setColor(Color.darkGray);
-        g.fillOval(30, 50, 250, 250);
+        g.fillOval(30, 25, 250, 250);
         
     }
     

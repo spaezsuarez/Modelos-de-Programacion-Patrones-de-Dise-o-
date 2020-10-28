@@ -1,13 +1,12 @@
 package practica_prototype;
 
-import GUI.FiguraComponent;
+import GUI.Frame;
 
 public class Practica_Prototype {
 
     public static void main(String[] args) {
 
-       FiguraComponent test = new FiguraComponent("Circulo");
-       test.initTemplate();
+       Frame test = Frame.getInstance();
 
     }
 }

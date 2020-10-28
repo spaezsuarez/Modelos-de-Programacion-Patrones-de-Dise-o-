@@ -16,7 +16,7 @@ public class RectanguloComponent extends Component {
     public void paint(Graphics g) {
         super.paint(g);
         g.setColor(Color.darkGray);
-        g.fillRect(0, 175, 300, 100);
+        g.fillRect(0, 100, 300, 100);
         
     }
     

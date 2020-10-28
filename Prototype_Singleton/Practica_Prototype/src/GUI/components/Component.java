@@ -9,7 +9,7 @@ public class Component extends JPanel {
     
     public Component(){
         ancho = 300;
-        alto = 350;
+        alto = 275;
     }
     
     @Override

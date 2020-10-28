@@ -71,5 +71,11 @@ public class Rectangulo extends Figuras_geometricas {
                 + "</body></html>";
         
     }
+
+    @Override
+    public void establecerDimensiones(double[] valores) {
+        setAncho((int) valores[0]);
+        setAltura((int) valores[1]);
+    }
     
 }
