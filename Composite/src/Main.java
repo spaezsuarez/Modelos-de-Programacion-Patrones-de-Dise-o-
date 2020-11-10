@@ -1,9 +1,10 @@
-import GUI.Frame;
+import GUI.AgregarComponente;
 
 public class Main {
 
     public static void main(String[] args) {
-        Frame frame = new Frame();
+        AgregarComponente frame = new AgregarComponente();
+        frame.initTemplate();
     }
 
 }
