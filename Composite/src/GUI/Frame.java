@@ -3,7 +3,6 @@ package GUI;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,7 +14,7 @@ import Persistence.Lector;
 
 public class Frame extends JFrame {
 
-    private Lector lectorArchvs = new Lector();
+    private Lector lectorArchvs = Lector.getInstance();
     private Panel_Combos panelCombos = new Panel_Combos(new GridLayout(0, 1, 5, 5));
     private Panel_Desc_Combo panelDescCombos = new Panel_Desc_Combo();
     private JLabel Lbltitulo, LblCombosDisponibles, LblDescripciónCombo;
