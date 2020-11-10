@@ -1,0 +1,4 @@
+Combo1-15000-PapaFrancesa,Arroz,Platano,Jugo,FileteDeCarne
+Combo2-7500-PresaDePollo,Jugo,Arroz
+Combo3-9000-PresaDePollo,Jugo,Ensalada,Arroz
+Combo4-12500-Garbanzos,CostillaDeCerdo,Jugo,Ensalada,Arroz

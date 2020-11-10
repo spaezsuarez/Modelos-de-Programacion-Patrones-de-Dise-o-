@@ -1,14 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
-/**
- *
- * @author migue
- */
-public class Panel_Desc_Combo {
-    
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Panel_Desc_Combo extends JPanel {
+
+    private JLabel LblNombreCombo, LblDescCombo;
+
+    public Panel_Desc_Combo() {
+        setLayout(null);
+        setSize(305, 265);
+        setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        initComponents();
+    }
+
+    public void initComponents() {
+        LblNombreCombo = new JLabel("Nombre del combo");
+        LblNombreCombo.setSize(295, 30);
+        LblNombreCombo.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+        LblNombreCombo.setHorizontalAlignment(JLabel.CENTER);
+        LblNombreCombo.setLocation(5, 5);
+        LblNombreCombo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        add(LblNombreCombo);
+        
+        LblDescCombo = new JLabel("Descripción del combo");
+        LblDescCombo.setSize(295, 220);
+        LblDescCombo.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+        LblDescCombo.setHorizontalAlignment(JLabel.CENTER);
+        LblDescCombo.setLocation(5, 40);
+        LblDescCombo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        add(LblDescCombo);
+    }
+
 }
