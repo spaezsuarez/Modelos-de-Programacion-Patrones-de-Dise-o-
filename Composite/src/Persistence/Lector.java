@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JList;
 
 public class Lector {
 
@@ -41,4 +42,16 @@ public class Lector {
         return retorno;
     }
 
+    public Object[] getData() {
+        ArrayList<String> retornoCombos = leerCombos();
+        ArrayList<String> nombresCombos = new ArrayList<>();
+        
+        retornoCombos.forEach((a) -> {
+            String[] parte = a.split("-");
+            nombresCombos.add(parte[0]);
+        });
+        
+        return nombresCombos.toArray();
+    }
+    
 }
