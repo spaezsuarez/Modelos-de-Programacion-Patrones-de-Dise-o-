@@ -14,12 +14,12 @@ import java.awt.Font;
 
 //Componentes
 import GUI.components.PanelPedido;
-import java.awt.GridLayout;
 
 //Eventos
 import java.awt.event.*;
 
-
+//Persistencia
+import Persistence.Lector;
 
 public class AgregarComponente extends JFrame implements ActionListener {
     
@@ -27,7 +27,7 @@ public class AgregarComponente extends JFrame implements ActionListener {
     private final JButton btnAgregar,btnTerminar;
     private final JLabel txtCombos,txtAdicion,txtPedidoExtra;
     private PanelPedido panelPedido;
-    private JList<String> listCombos,listaAdiciones;
+    private JList listCombos,listaAdiciones;
     
     public AgregarComponente(){
         ANCHO = 1000;
@@ -40,9 +40,11 @@ public class AgregarComponente extends JFrame implements ActionListener {
         txtCombos = new JLabel("Combos extra");
         txtPedidoExtra = new JLabel("Pedido extra");
         
+        Lector lector = Lector.getInstance();
+        
         panelPedido = new PanelPedido();
-        listCombos = new JList<>(new String[]{"Combo 1","Combo 2","Combo 3","Combo 4"});
-        listaAdiciones =  new JList<>(new String[]{"Combo 1","Combo 2","Combo 3","Combo 4"});
+        listCombos = new JList(lector.leerCombos().toArray());
+        listaAdiciones =  new JList(lector.leerAdiciones().toArray());
     }
     
     public void initElements(){
@@ -118,7 +120,7 @@ public class AgregarComponente extends JFrame implements ActionListener {
         
         if(event.getSource() == btnAgregar){
             
-            String hola = "Hola";
+            String hola = String.valueOf(listCombos.getSelectedValue());
             panelPedido.addPedido(hola);
             panelPedido.render();
         }
