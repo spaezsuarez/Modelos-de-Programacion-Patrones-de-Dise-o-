@@ -7,6 +7,17 @@ import java.util.Scanner;
 import javax.swing.JList;
 
 public class Lector {
+    
+    private static Lector instance;
+    
+    private Lector(){}
+    
+    public static Lector getInstance(){
+        if(instance == null){
+            instance = new Lector();
+        }
+        return instance;
+    }
 
     public ArrayList leerAdiciones() {
         ArrayList<String> retorno = new ArrayList<>();
