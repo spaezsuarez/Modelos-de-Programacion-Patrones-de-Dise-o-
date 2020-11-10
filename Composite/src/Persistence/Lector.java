@@ -10,7 +10,7 @@ public class Lector {
     public ArrayList leerAdiciones() {
         ArrayList<String> retorno = new ArrayList<>();
         try {
-            File myObj = new File("../Adiciones.txt");
+            File myObj = new File("src/Persistence/Adiciones.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String registro = myReader.nextLine();
@@ -27,7 +27,7 @@ public class Lector {
     public ArrayList leerCombos() {
         ArrayList<String> retorno = new ArrayList<>();
         try {
-            File myObj = new File("D:\\Mierdas_u\\Materias\\Modelos_de_programación_Repo_modelos\\ejercicios_modelos_programacion_1\\Composite\\src\\Persistence\\Combos.txt");
+            File myObj = new File("src/Persistence/Combos.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String registro = myReader.nextLine();
