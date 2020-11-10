@@ -20,7 +20,7 @@ public class Frame extends JFrame {
     private Panel_Desc_Combo panelDescCombos = new Panel_Desc_Combo();
     private JLabel Lbltitulo, LblCombosDisponibles, LblDescripciónCombo;
     private JButton BtnAgregarCombo, BtnModificarCombo;
-    private JScrollPane jsp;
+    private JScrollPane scrollPane;
 
     private JList listaCombos;
 
@@ -32,7 +32,6 @@ public class Frame extends JFrame {
         setTitle("Tienda - Composite");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        getData();
         initComponents();
         initListeners();
     }
@@ -44,6 +43,12 @@ public class Frame extends JFrame {
 
         BtnModificarCombo.addActionListener((ae) -> {
 
+        });
+
+        listaCombos.addListSelectionListener((lse) -> {
+            if (lse.getValueIsAdjusting()) {
+
+            }
         });
     }
 
@@ -83,27 +88,20 @@ public class Frame extends JFrame {
         BtnModificarCombo.setLocation(365, 40);
         add(BtnModificarCombo);
 
-        jsp = new JScrollPane(listaCombos);
-        jsp.setBounds(5, 75, 200, 300);
-        jsp.setBorder(new BorderUIResource.LineBorderUIResource(Color.BLACK));
-        jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        jsp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        add(jsp);
+        listaCombos = new JList(lectorArchvs.getData());
+        listaCombos.setSelectionBackground(Color.orange);
+
+        scrollPane = new JScrollPane(listaCombos);
+        scrollPane.setBounds(5, 75, 200, 300);
+        scrollPane.setBorder(new BorderUIResource.LineBorderUIResource(Color.BLACK));
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        add(scrollPane);
+        scrollPane.updateUI();
 
         add(panelDescCombos);
         panelDescCombos.setLocation(210, 110);
 
-    }
-
-    public void getData() {
-
-        listaCombos = new JList(lectorArchvs.leerCombos().toArray());
-        System.out.println(listaCombos.getSize());
-//        for (int i = 0; i < listaCombos.getSize(); i++) {
-//
-//        }
-        ArrayList<String> arreglo = new ArrayList<>();
-        String sports[] = {"Tennis", "Archery", "Football", "Fencing", "Cricket", "Squash", "Hockey", "Rugby"};
     }
 
 }
