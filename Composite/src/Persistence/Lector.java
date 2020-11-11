@@ -7,13 +7,14 @@ import java.util.Scanner;
 import javax.swing.JList;
 
 public class Lector {
-    
+
     private static Lector instance;
-    
-    private Lector(){}
-    
-    public static Lector getInstance(){
-        if(instance == null){
+
+    private Lector() {
+    }
+
+    public static Lector getInstance() {
+        if (instance == null) {
             instance = new Lector();
         }
         return instance;
@@ -56,13 +57,23 @@ public class Lector {
     public Object[] getData() {
         ArrayList<String> retornoCombos = leerCombos();
         ArrayList<String> nombresCombos = new ArrayList<>();
-        
+
         retornoCombos.forEach((a) -> {
             String[] parte = a.split("-");
             nombresCombos.add(parte[0]);
         });
-        
+
         return nombresCombos.toArray();
     }
-    
+
+    public String[] buscarCombo(String nombreCombo, ArrayList<String> combos) {
+        for (String a : combos) {
+            String[] partes = a.split("-");
+            if (nombreCombo.equals(partes[0])) {
+                return partes;
+            }
+        }
+        return null;
+    }
+
 }

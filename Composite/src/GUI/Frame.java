@@ -2,7 +2,6 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,17 +10,18 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.plaf.BorderUIResource;
 import Persistence.Lector;
+import java.util.ArrayList;
 
 public class Frame extends JFrame {
 
     private Lector lectorArchvs = Lector.getInstance();
-    private Panel_Combos panelCombos = new Panel_Combos(new GridLayout(0, 1, 5, 5));
     private Panel_Desc_Combo panelDescCombos = new Panel_Desc_Combo();
     private JLabel Lbltitulo, LblCombosDisponibles, LblDescripciónCombo;
-    private JButton BtnAgregarCombo, BtnModificarCombo;
+    private JButton BtnAgregarCombo;
     private JScrollPane scrollPane;
 
     private JList listaCombos;
+    private ArrayList<String> combos = lectorArchvs.leerCombos();
 
     public Frame() {
         setLayout(null);
@@ -40,13 +40,11 @@ public class Frame extends JFrame {
 
         });
 
-        BtnModificarCombo.addActionListener((ae) -> {
-
-        });
-
         listaCombos.addListSelectionListener((lse) -> {
-            if (lse.getValueIsAdjusting()) {
-
+            if (lse.getValueIsAdjusting() && (listaCombos.getSelectedValue() != null)) {
+                String[] desc = lectorArchvs.buscarCombo(listaCombos.getSelectedValue().toString(), combos);
+                panelDescCombos.setLblNombreCombo(desc[0]);
+                panelDescCombos.setLblDescCombo("<html><center><h1>Precio</h1><h2>" + desc[1] + "$</h2><h1>Composición</h1><h4>" + desc[2] + "</h4></center></html>");
             }
         });
     }
@@ -78,14 +76,9 @@ public class Frame extends JFrame {
         add(LblDescripciónCombo);
 
         BtnAgregarCombo = new JButton("Agregar combo");
-        BtnAgregarCombo.setSize(150, 30);
+        BtnAgregarCombo.setSize(305, 30);
         BtnAgregarCombo.setLocation(210, 40);
         add(BtnAgregarCombo);
-
-        BtnModificarCombo = new JButton("Modificar combo");
-        BtnModificarCombo.setSize(150, 30);
-        BtnModificarCombo.setLocation(365, 40);
-        add(BtnModificarCombo);
 
         listaCombos = new JList(lectorArchvs.getData());
         listaCombos.setSelectionBackground(Color.orange);

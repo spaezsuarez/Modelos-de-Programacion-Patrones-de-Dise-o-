@@ -25,14 +25,22 @@ public class Panel_Desc_Combo extends JPanel {
         LblNombreCombo.setLocation(5, 5);
         LblNombreCombo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         add(LblNombreCombo);
-        
+
         LblDescCombo = new JLabel("Descripción del combo");
         LblDescCombo.setSize(295, 220);
         LblDescCombo.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
         LblDescCombo.setHorizontalAlignment(JLabel.CENTER);
         LblDescCombo.setLocation(5, 40);
-        LblDescCombo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        LblDescCombo.setBorder(BorderFactory.createLineBorder(Color.RED));
         add(LblDescCombo);
+    }
+
+    public void setLblNombreCombo(String text) {
+        this.LblNombreCombo.setText(text);
+    }
+
+    public void setLblDescCombo(String text) {
+        this.LblDescCombo.setText(text);
     }
 
 }
