@@ -37,4 +37,8 @@ public class Combo extends Producto {
         });
     }
 
+    public ArrayList<Producto> getProductos() {
+        return productos;
+    }
+
 }

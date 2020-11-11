@@ -37,7 +37,8 @@ public class Frame extends JFrame {
 
     public void initListeners() {
         BtnAgregarCombo.addActionListener((ae) -> {
-
+            AgregarComponente menu = new AgregarComponente();
+            menu.initTemplate();
         });
 
         listaCombos.addListSelectionListener((lse) -> {

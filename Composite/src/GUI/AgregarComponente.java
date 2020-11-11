@@ -20,6 +20,10 @@ import java.awt.event.*;
 
 //Persistencia
 import Persistence.Lector;
+import java.util.ArrayList;
+
+import controllers.ComboController;
+import models.Combo;
 
 public class AgregarComponente extends JFrame implements ActionListener {
 
@@ -28,6 +32,7 @@ public class AgregarComponente extends JFrame implements ActionListener {
     private final JLabel txtCombos, txtAdicion, txtPedidoExtra;
     private PanelPedido panelPedido;
     private JList listCombos, listaAdiciones;
+    private Lector lector;
 
     public AgregarComponente() {
         ANCHO = 1000;
@@ -36,11 +41,11 @@ public class AgregarComponente extends JFrame implements ActionListener {
         btnAgregar = new JButton("Agregar");
         btnTerminar = new JButton("Terminar Pedido");
 
-        txtAdicion = new JLabel("Adiciones extra");
-        txtCombos = new JLabel("Combos extra");
-        txtPedidoExtra = new JLabel("Pedido extra");
+        txtAdicion = new JLabel("Adiciones");
+        txtCombos = new JLabel("Combos");
+        txtPedidoExtra = new JLabel("Pedido Actual");
 
-        Lector lector = Lector.getInstance();
+        lector = Lector.getInstance();
 
         panelPedido = new PanelPedido();
         listCombos = new JList(lector.leerCombos().toArray());
@@ -68,7 +73,7 @@ public class AgregarComponente extends JFrame implements ActionListener {
         add(txtCombos);
 
         txtAdicion.setSize(new Dimension(200, 40));
-        txtAdicion.setLocation(420, 40);
+        txtAdicion.setLocation(430, 40);
         txtAdicion.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
         add(txtAdicion);
 
@@ -105,9 +110,9 @@ public class AgregarComponente extends JFrame implements ActionListener {
 
     public void initTemplate() {
         setLayout(null);
-        setTitle("Agregar Combo");
+        setTitle("Realizar Pedido");
         setSize(new Dimension(ANCHO, ALTO));
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         initElements();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -120,16 +125,20 @@ public class AgregarComponente extends JFrame implements ActionListener {
         if (event.getSource() == btnAgregar) {
 
             String adicion = String.valueOf(listaAdiciones.getSelectedValue()), combo = String.valueOf(listCombos.getSelectedValue());
-            if(!(adicion.equals("null"))) {
+
+            if (!(adicion.equals("null"))) {
                 panelPedido.addPedido(adicion);
-                
             }
-            if(!(combo.equals("null"))) {
+            if (!(combo.equals("null"))) {
                 panelPedido.addPedido(combo);
             }
-            
-            
             panelPedido.render();
+
+        } else if (event.getSource() == btnTerminar) {
+
+            ComboController controller = new ComboController();
+            Factura factura = new Factura();
+            factura.initTemplate(controller.initCombo(panelPedido.getPedidos()),panelPedido.getPedidos());
         }
     }
 

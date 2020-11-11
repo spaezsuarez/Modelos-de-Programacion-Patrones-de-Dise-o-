@@ -76,4 +76,22 @@ public class Lector {
         return null;
     }
 
+    public String[] buscarAdicion(String nombreAdicion, ArrayList<String> adiciones) {
+        for (String a : adiciones) {
+            try {
+                System.out.println("a: " + a);
+                String[] partes = a.split("-");
+                if (nombreAdicion.equals(partes[0])) {
+                    //System.out.println("Partes: " + partes[0]);
+                    //System.out.println("Nombre: " + nombreAdicion);
+                    return partes;
+                }
+            } catch (NullPointerException e) {
+                System.out.println(a + " Nombre: " + nombreAdicion);
+            }
+
+        }
+        return new String[]{"0","0"};
+    }
+
 }
