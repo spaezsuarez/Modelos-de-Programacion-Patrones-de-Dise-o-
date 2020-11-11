@@ -1,29 +1,17 @@
 package GUI;
 
-//Elementos Graficos
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.JList;
-
-//Elemetos Decorativos
 import java.awt.Dimension;
 import java.awt.Font;
-
-//Componentes
 import GUI.components.PanelPedido;
-
-//Eventos
 import java.awt.event.*;
-
-//Persistencia
 import Persistence.Lector;
-import java.util.ArrayList;
-
 import controllers.ComboController;
-import models.Combo;
 
 public class AgregarComponente extends JFrame implements ActionListener {
 
@@ -133,12 +121,13 @@ public class AgregarComponente extends JFrame implements ActionListener {
                 panelPedido.addPedido(combo);
             }
             panelPedido.render();
+            panelPedido.updateUI();
 
         } else if (event.getSource() == btnTerminar) {
 
             ComboController controller = new ComboController();
             Factura factura = new Factura();
-            factura.initTemplate(controller.initCombo(panelPedido.getPedidos()),panelPedido.getPedidos());
+            factura.initTemplate(controller.initCombo(panelPedido.getPedidos()), panelPedido.getPedidos());
         }
     }
 

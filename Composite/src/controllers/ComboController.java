@@ -11,14 +11,11 @@ public class ComboController {
     public void establecerProductosCombo(String[] composicion, Combo combo) {
 
         Lector lector = Lector.getInstance();
-        //System.out.println("Lector: " +lector);
 
         for (String txt : composicion) {
             Adicion adicion = new Adicion();
-            //System.out.println("txt: " + txt);
-            //lector.leerAdiciones().forEach((e) -> {System.out.println(e);});
-            String precioConvertir = lector.buscarAdicion(txt, lector.leerAdiciones())[1];
-            
+            String precioConvertir = lector.buscarAdicion2(txt, lector.leerAdiciones())[1];
+
             adicion.setPrecio(Double.parseDouble(precioConvertir));
             combo.agregarProducto(adicion);
         }
@@ -32,11 +29,11 @@ public class ComboController {
         for (int i = 0; i < pedidos.size(); i++) {
             if (pedidos.get(i).getText().charAt(0) == 'A') {
                 Adicion adicion = new Adicion();
-                if (i + 1 <= 9) {
-                    adicion.setPrecio(Double.parseDouble(lector.buscarAdicion(pedidos.get(i).getText().substring(0, 8), lector.leerAdiciones())[1]));
+                if (!(pedidos.get(i).getText().substring(0, 9).charAt(8) != '-')) {
+                    adicion.setPrecio(Double.parseDouble(lector.buscarAdicion1(pedidos.get(i).getText().substring(0, 8), lector.leerAdiciones())[1]));
                 } else {
-                    adicion.setNombre(lector.buscarAdicion(pedidos.get(i).getText().substring(0, 9), lector.leerAdiciones())[0]);
-                    adicion.setPrecio(Double.parseDouble(lector.buscarAdicion(pedidos.get(i).getText().substring(0, 9), lector.leerAdiciones())[1]));
+                    adicion.setNombre(lector.buscarAdicion1(pedidos.get(i).getText().substring(0, 9), lector.leerAdiciones())[0]);
+                    adicion.setPrecio(Double.parseDouble(lector.buscarAdicion1(pedidos.get(i).getText().substring(0, 9), lector.leerAdiciones())[1]));
                 }
                 pedidoFinal.agregarProducto(adicion);
 
@@ -45,13 +42,9 @@ public class ComboController {
                 String[] composiciones = lector.buscarCombo(pedidos.get(i).getText().substring(0, 6), lector.leerCombos())[2].split(",");
                 establecerProductosCombo(composiciones, combo);
                 pedidoFinal.agregarProducto(combo);
-
             }
         }
-        
-        pedidoFinal.getProductos().forEach((r) -> {
-            System.out.println(r);
-        });
+
         return pedidoFinal;
     }
 

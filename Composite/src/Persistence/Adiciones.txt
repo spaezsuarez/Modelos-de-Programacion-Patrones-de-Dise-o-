@@ -1,6 +1,6 @@
 Adicion1-5000-PapaFrancesa
 Adicion2-1000-Arroz
-Adicion3-1500-platano
+Adicion3-1500-Platano
 Adicion4-2000-PresaDePollo
 Adicion5-3000-FileteDeCarne
 Adicion6-1000-Jugo

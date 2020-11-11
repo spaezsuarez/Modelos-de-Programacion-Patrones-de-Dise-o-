@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JList;
 
 public class Lector {
 
@@ -76,22 +75,26 @@ public class Lector {
         return null;
     }
 
-    public String[] buscarAdicion(String nombreAdicion, ArrayList<String> adiciones) {
+    public String[] buscarAdicion1(String nombreAdicion, ArrayList<String> adiciones) {
         for (String a : adiciones) {
-            try {
-                System.out.println("a: " + a);
-                String[] partes = a.split("-");
-                if (nombreAdicion.equals(partes[0])) {
-                    //System.out.println("Partes: " + partes[0]);
-                    //System.out.println("Nombre: " + nombreAdicion);
-                    return partes;
-                }
-            } catch (NullPointerException e) {
-                System.out.println(a + " Nombre: " + nombreAdicion);
+            String[] partes = a.split("-");
+            if (nombreAdicion.equals(partes[0])) {
+                return partes;
             }
 
         }
-        return new String[]{"0","0"};
+        return null;
+    }
+    
+    public String[] buscarAdicion2(String nombreAdicion, ArrayList<String> adiciones) {
+        for (String a : adiciones) {
+            String[] partes = a.split("-");
+            if (nombreAdicion.equals(partes[2])) {
+                return partes;
+            }
+
+        }
+        return null;
     }
 
 }
