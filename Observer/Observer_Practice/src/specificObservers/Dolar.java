@@ -3,13 +3,12 @@ package specificObservers;
 import abstraction.Observer;
 import specificSubjects.PesoColombiano;
 
-public class Dolar implements Observer {
+public class Dolar extends Observer {
     
     private static Dolar instance;
-    private PesoColombiano subject;
     
     private Dolar(PesoColombiano subject){
-        this.subject = subject;
+        super(subject);
     }
     
     public static Dolar getInstance(PesoColombiano subject){
@@ -19,14 +18,8 @@ public class Dolar implements Observer {
         return instance;
     }
     
-    
     @Override
     public void actualizar() {
+        valorCambio = subject.getValorConversion() * 0.00029;
     }
-
-    @Override
-    public double conversion() {
-        return 0;
-    }
-    
 }

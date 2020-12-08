@@ -1,10 +1,20 @@
 package abstraction;
 
+import specificSubjects.PesoColombiano;
 
-public interface Observer {
+public abstract class Observer {
     
-    void actualizar();
-    double conversion();
-     
+    protected double valorCambio;
+    protected PesoColombiano subject;
+    
+    public Observer(PesoColombiano subject){
+        this.subject = subject;
+    }
+    
+    public double getValorCambio(){
+        return valorCambio;
+    }
+    
+    public abstract void actualizar();
     
 }
