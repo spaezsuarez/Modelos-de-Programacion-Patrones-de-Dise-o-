@@ -5,8 +5,8 @@ import abstraction.Observer;
 import java.util.ArrayList;
 
 public class PesoColombiano implements Subject {
-    
-    private ArrayList<Observer> observadores;
+
+    private ArrayList<Observer> observadores = new ArrayList<>();
     private double valorConversion;
 
     @Override
@@ -16,28 +16,33 @@ public class PesoColombiano implements Subject {
 
     @Override
     public void eliminarObservador(Observer o) {
-        observadores.forEach((e) -> {
-            if(e == o)
-                observadores.remove(e);
-        });
+        observadores.remove(o);
     }
 
     @Override
     public void notificar() {
-        for(int i = 0; i < observadores.size(); i++){
+        for (int i = 0; i < observadores.size(); i++) {
             observadores.get(i).actualizar();
         }
     }
-    
-    public void setValorConversion(double valor){
+
+    public void setValorConversion(double valor) {
         this.valorConversion = valor;
         notificar();
     }
-    
-    public double getValorConversion(){
+
+    public double getValorConversion() {
         return valorConversion;
     }
-    
-    
-    
+
+    public void escribirListeners() {
+        for (Observer e : observadores) {
+            System.out.println(e.getClass().getSimpleName() + "         " + e.getValorCambio());
+        }
+    }
+
+    public ArrayList<Observer> getObservadores() {
+        return observadores;
+    }
+
 }
