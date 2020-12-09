@@ -2,6 +2,7 @@ package gui;
 
 import abstraction.Observer;
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -12,6 +13,7 @@ public class Panel extends JPanel {
     private Observer observer;
     private JLabel LblMoneda, LblMonedaConv;
     private JButton BtnSubscribe, BtnUnsubscribe;
+    private String font = "Montserrat";
 
     public Panel(Observer observer) {
         setLayout(null);
@@ -30,12 +32,14 @@ public class Panel extends JPanel {
         LblMoneda.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         LblMoneda.setLocation(5, 5);
         LblMoneda.setSize(190, 30);
+        LblMoneda.setFont(new Font(font,Font.PLAIN,15));
         add(LblMoneda);
 
         LblMonedaConv = new JLabel("- - - - - - - -");
         LblMonedaConv.setHorizontalAlignment(JLabel.CENTER);
         LblMonedaConv.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         LblMonedaConv.setLocation(5, 40);
+        LblMonedaConv.setFont(new Font(font,Font.PLAIN,15));
         LblMonedaConv.setSize(190, 30);
         add(LblMonedaConv);
 
@@ -43,6 +47,7 @@ public class Panel extends JPanel {
         BtnSubscribe.setSize(130, 30);
         BtnSubscribe.setLocation((getWidth() - BtnSubscribe.getWidth()) / 2, 75);
         BtnSubscribe.setFocusable(false);
+        BtnSubscribe.setFont(new Font(font,Font.PLAIN,15));
         add(BtnSubscribe);
 
         BtnUnsubscribe = new JButton("Unsubscribe");
@@ -50,6 +55,7 @@ public class Panel extends JPanel {
         BtnUnsubscribe.setSize(130, 30);
         BtnUnsubscribe.setLocation((getWidth() - BtnUnsubscribe.getWidth()) / 2, 110);
         BtnUnsubscribe.setFocusable(false);
+        BtnUnsubscribe.setFont(new Font(font,Font.PLAIN,15));
         add(BtnUnsubscribe);
 
     }

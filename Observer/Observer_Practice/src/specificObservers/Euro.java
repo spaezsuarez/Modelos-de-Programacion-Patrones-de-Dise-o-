@@ -20,7 +20,7 @@ public class Euro extends Observer{
     
     @Override
     public void actualizar() {
-        valorCambio = subject.getValorConversion() * 0.00024;
+        valorCambio = subject.getValorConversion() * 0.000237;
     }
     
 }

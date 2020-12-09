@@ -20,7 +20,7 @@ public class Real extends Observer {
     
     @Override
     public void actualizar() {
-        valorCambio = subject.getValorConversion() * 0.0015;
+        valorCambio = subject.getValorConversion() * 0.0014692116470668;
     }
     
 }

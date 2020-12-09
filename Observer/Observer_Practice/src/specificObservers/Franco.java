@@ -20,7 +20,7 @@ public class Franco extends Observer {
     
     @Override
     public void actualizar() {
-        valorCambio = subject.getValorConversion() * 0.00025;
+        valorCambio = subject.getValorConversion() * 0.00025503560813617;
     }
     
 }
