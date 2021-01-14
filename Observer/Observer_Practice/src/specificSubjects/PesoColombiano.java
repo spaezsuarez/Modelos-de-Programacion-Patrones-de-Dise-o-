@@ -35,12 +35,6 @@ public class PesoColombiano implements Subject {
         return valorConversion;
     }
 
-    public void escribirListeners() {
-        for (Observer e : observadores) {
-            System.out.println(e.getClass().getSimpleName() + "         " + e.getValorCambio());
-        }
-    }
-
     public ArrayList<Observer> getObservadores() {
         return observadores;
     }

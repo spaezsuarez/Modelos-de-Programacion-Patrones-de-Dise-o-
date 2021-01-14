@@ -1,6 +1,6 @@
 package gui;
 
-import abstraction.Observer;
+import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -18,6 +18,7 @@ public class Frame extends JFrame {
     private JLabel LblCOP;
     private JTextField TxtFldCOP;
     private ArrayList<Panel> arregloPaneles = new ArrayList<>();
+    private String font = "Montserrat";
 
     public Frame() {
         setLayout(null);
@@ -74,6 +75,7 @@ public class Frame extends JFrame {
         LblCOP.setHorizontalAlignment(JLabel.CENTER);
         LblCOP.setSize(200, 30);
         LblCOP.setLocation(5, 455);
+        LblCOP.setFont(new Font(font,Font.PLAIN,13));
         add(LblCOP);
 
         TxtFldCOP = new JTextField();
@@ -92,14 +94,13 @@ public class Frame extends JFrame {
                     String texto = TxtFldCOP.getText();
                     double valor = Double.valueOf(texto);
                     pesoCOP.setValorConversion(valor);
-                    pesoCOP.escribirListeners();
                     for (int i = 0; i < arregloPaneles.size(); i++) {
                         if (!arregloPaneles.get(i).getBtnSubscribe().isEnabled()) {
                             arregloPaneles.get(i).actualizarLabel();
                         }
                     }
                 } catch (NumberFormatException ae) {
-                    System.out.println("Paila perro");
+                   
                 }
             }
 

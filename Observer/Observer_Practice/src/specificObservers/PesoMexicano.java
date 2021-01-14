@@ -20,7 +20,7 @@ public class PesoMexicano extends Observer {
 
     @Override
     public void actualizar() {
-        this.valorCambio = subject.getValorConversion() * 0.0057;
+        this.valorCambio = subject.getValorConversion() * 0.0056769186547859;
     }
     
 }

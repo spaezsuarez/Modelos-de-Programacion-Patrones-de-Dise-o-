@@ -20,7 +20,7 @@ public class Yen extends Observer {
     
     @Override
     public void actualizar() {
-        valorCambio = subject.getValorConversion() * 0.030;
+        valorCambio = subject.getValorConversion() * 0.029882738620603;
     }
     
 }

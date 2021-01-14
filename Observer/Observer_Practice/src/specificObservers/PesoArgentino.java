@@ -20,7 +20,7 @@ public class PesoArgentino extends Observer{
     
     @Override
     public void actualizar() {
-        valorCambio = subject.getValorConversion() * 0.023;
+        valorCambio = subject.getValorConversion() * 0.023414344991108;
     }
     
     
