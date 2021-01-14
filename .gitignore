@@ -1,9 +1,10 @@
-ii/factory_practice/nbproject/private/
+/factory_practice/nbproject/private/
 /Patron Factory/factory_practice/nbproject/private/
 /Abstract Factory/abstract_factory_practice/nbproject/private/
 /Abstract Factory/abstract_factory_practice/build/
 /Prototype_Singleton/Practica_Prototype/build/
 /Factory Method/Factory Method/build/
+/Factory Method/Factory Method/nbproject/private/
 /Prototype_Singleton/Practica_Prototype/nbproject/private/
 /Composite/nbproject/private/
 /Composite/build/
@@ -11,3 +12,6 @@ ii/factory_practice/nbproject/private/
 /Flyweigth/PracticaFlyweight/build
 /Observer/Observer_Practice/nbproject/private/
 /Observer/Observer_Practice/build/
+/Memento/PatronMemento/nbproject/private/
+/Memento/PatronMemento/build/
+
