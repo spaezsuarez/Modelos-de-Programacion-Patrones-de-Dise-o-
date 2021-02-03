@@ -6,6 +6,7 @@
 /Factory Method/Factory Method/build/
 /Factory Method/Factory Method/nbproject/private/
 /Prototype_Singleton/Practica_Prototype/nbproject/private/
+/Prototype_Singleton/Practica_Prototype/build
 /Composite/nbproject/private/
 /Composite/build/
 /Flyweigth/PracticaFlyweight/nbproject/private/
@@ -14,4 +15,6 @@
 /Observer/Observer_Practice/build/
 /Memento/PatronMemento/nbproject/private/
 /Memento/PatronMemento/build/
-
+/Mediator/Practice Mediator/nbproject/private/
+/Mediator/Practice Mediator/build/
+/Mediator/Practice Mediator/dist/
